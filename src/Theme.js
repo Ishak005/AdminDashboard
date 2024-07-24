@@ -129,9 +129,9 @@ export const themeSettings = (mode) => {
     const colors = tokens(mode);
 
     return {
-        Palette: {
+        palette: {
             mode: mode,
-            ...(mode === 'dark' ?
+            ...(mode === "dark" ?
                 {
                     primary: {
                         main: colors.primary[500],
@@ -165,7 +165,7 @@ export const themeSettings = (mode) => {
                     },
                 }),
         },
-        Typography: {
+        typography: {
             fontFamily: ["Source Code Pro", "Sans-serif"].join(","),
             fontSize: 12,
             h1: {
@@ -208,11 +208,11 @@ export const ColorModeContext = createContext({
 });
 
 export const useMode = () => {
-    const [mode, setMode] = useState("Dark");
+    const [mode, setMode] = useState("dark");
 
     const colorMode = useMemo(
         () => ({
-            toggleColorMode: () => setMode((prev) => (prev === "light" ? "Dark" : "light")),
+            toggleColorMode: () => setMode((prev) => (prev === "light" ? "dark" : "light")),
         }),[]
     );
      const theme = useMemo(() => createTheme(themeSettings(mode),[mode]));
